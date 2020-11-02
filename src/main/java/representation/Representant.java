@@ -97,7 +97,7 @@ public class Representant
 
 	@Override
 	public String toString() {
-		return "Representant{" + "numero=" + numero + ", nom=" + nom + ", prenom=" + prenom + '}';
+		return "Representant{" + "numero=" + getNumero() + ", nom=" + getNom() + ", prenom=" + getPrenom() + '}';
 	}
 	
 	
