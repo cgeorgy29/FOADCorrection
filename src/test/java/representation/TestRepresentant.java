@@ -11,15 +11,15 @@ public class TestRepresentant {
 	private static final float INDEMNITE_OCCITANIE = 200f;
 	
 	private Representant r; // L'objet à tester
-	private ZoneGeographique z;
+	private ZoneGeographique occitanie;
 	
 	@BeforeEach
 	public void setUp() {
 		// Initialiser les objets utilisés dans les tests
-		z = new ZoneGeographique(1, "Occitanie");
-		z.setIndemniteRepas(INDEMNITE_OCCITANIE);
+		occitanie = new ZoneGeographique(1, "Occitanie");
+		occitanie.setIndemniteRepas(INDEMNITE_OCCITANIE);
 
-		r = new Representant(36, "Bastide", "Rémi", z);	
+		r = new Representant(36, "Bastide", "Rémi", occitanie);	
 		r.setSalaireFixe(FIXE_BASTIDE);				
 	}
 	
@@ -41,7 +41,7 @@ public class TestRepresentant {
 			// Valeur calculée
 			salaire,
 			// Marge d'erreur tolérée
-			0.01,
+			0.001,
 			// Message si erreur
 			"Le salaire mensuel est incorrect"
 		); 
@@ -49,7 +49,6 @@ public class TestRepresentant {
 
 	@Test
 	public void testCAParDefaut() {
-		float CA = 50000f;
 		float POURCENTAGE= 0.1f; // 10% de pourcentage sur CA
 		
 		// On n'enregistre aucun CA
@@ -64,7 +63,7 @@ public class TestRepresentant {
 		assertEquals(
 			FIXE_BASTIDE + INDEMNITE_OCCITANIE, 
 			salaire, 
-			0.01,
+			0.001,
 			"Le CA n'est pas correctement initialisé"
 		);
 	}
